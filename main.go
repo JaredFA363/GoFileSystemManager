@@ -11,6 +11,21 @@ func main() {
 	fmt.Println("Welcome to File System Utility Command Line Tool")
 	//reader := bufio.NewReader(os.Stdin)
 	//makeDirectory(reader)
+	//listFiles()
+}
+
+func listFiles() {
+	// retrieve a list of file names that match a pattern —, "*" means  all files in the current directory.
+	files, err := filepath.Glob("*")
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Print("Files in current directory")
+	// _ index of current element
+	for _, file := range files {
+		fmt.Println("-", file)
+	}
 }
 
 func makeDirectory(reader *bufio.Reader) {
